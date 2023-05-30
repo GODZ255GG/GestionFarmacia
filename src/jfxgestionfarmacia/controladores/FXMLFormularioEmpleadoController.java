@@ -84,7 +84,7 @@ public class FXMLFormularioEmpleadoController implements Initializable {
         this.esEdicion = esEdicion;
         this.empleadoEdicion = empleadoEdicion;
         this.interfazNotificacion = interfazNotificacion;
-        //TODO
+        
         if(esEdicion){
             lbTitulo.setText("Editar información del empleado(a) "+empleadoEdicion.getNombre());
             cargarInformacionEdicion();
@@ -142,7 +142,7 @@ public class FXMLFormularioEmpleadoController implements Initializable {
         int posicionSede = cbSede.getSelectionModel().getSelectedIndex();
         int posicionTurno = cbTurno.getSelectionModel().getSelectedIndex();
         String horario = tfHorario.getText();
-        //TODO
+        
         if(nombre.isEmpty()){
             tfNombre.setStyle(estiloError);
             datosValidados = false;

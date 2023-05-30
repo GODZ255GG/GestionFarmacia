@@ -26,3 +26,4 @@ Thumbs.db
 /nbproject/build-impl.xml
 
 dist/
+/build/
