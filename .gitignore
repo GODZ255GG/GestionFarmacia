@@ -1,24 +1,28 @@
-# Compiled class file
-*.class
+#Archivos de configuracion local o especificos del usuario
+private.properties
 
-# Log file
-*.log
+#Archivos y directorios del sistema operativo 
+.DS_Store
+Thumbs.db
 
-# BlueJ files
-*.ctxt
+#Archivos temporales
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+#Archivos de paquetes
 *.jar
 *.war
-*.nar
 *.ear
 *.zip
 *.tar.gz
-*.rar
+.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+#Archivos especificos de NetBeans
+/nbproject/Makefile-.mk
+/nbproject/Package-*.bash
+/nbproject/build-impl.xml
+
+dist/
