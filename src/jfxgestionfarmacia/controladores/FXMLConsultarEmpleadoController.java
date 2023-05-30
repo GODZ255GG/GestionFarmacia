@@ -45,9 +45,7 @@ public class FXMLConsultarEmpleadoController implements Initializable {
     private TextField tfNombre;
     @FXML
     private ComboBox<Sede> cbSede;
-    
     private Empleado empleadoConsulta;
-    
     private ObservableList<Sede> sedes;
     @FXML
     private TextField tfHorario;
