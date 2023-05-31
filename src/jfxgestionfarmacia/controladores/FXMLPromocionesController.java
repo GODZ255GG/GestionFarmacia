@@ -5,8 +5,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
@@ -23,6 +28,7 @@ import javafx.stage.Stage;
 import jfxgestionfarmacia.JFXGestionFarmacia;
 import jfxgestionfarmacia.interfazempleado.INotificacionOperacionPromocion;
 import jfxgestionfarmacia.modelo.DAO.PromocionDAO;
+import jfxgestionfarmacia.modelo.pojo.Empleado;
 import jfxgestionfarmacia.modelo.pojo.Promocion;
 import jfxgestionfarmacia.modelo.pojo.PromocionRespuesta;
 import jfxgestionfarmacia.utils.Constantes;
@@ -45,6 +51,8 @@ public class FXMLPromocionesController implements Initializable, INotificacionOp
     @FXML
     private TableView<Promocion> tvPromociones;
     private ObservableList<Promocion> promociones; 
+    @FXML
+    private TextField tfBusqueda;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -76,7 +84,34 @@ public class FXMLPromocionesController implements Initializable, INotificacionOp
             case Constantes.OPERACION_EXITOSA:
                     promociones.addAll(respuestaBD.getPromociones());
                     tvPromociones.setItems(promociones);
+                    configurarBusquedaTabla();
                 break;
+        }
+    }
+    
+    private void configurarBusquedaTabla(){
+        if(promociones.size() > 0){
+            FilteredList<Promocion> filtradorPromociones = new FilteredList<>(promociones, p-> true);
+            tfBusqueda.textProperty().addListener(new ChangeListener<String>(){
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                    filtradorPromociones.setPredicate(promocionFiltro ->{
+                        if(newValue == null || newValue.isEmpty()){
+                            return true;
+                        }
+                        String lowerNewValue = newValue.toLowerCase();
+                        if(promocionFiltro.getNombre().toLowerCase().contains(lowerNewValue)){
+                            return true;
+                        }else if(promocionFiltro.getNombreProducto().toLowerCase().contains(lowerNewValue)){
+                            return true;
+                        }
+                        return false;
+                    });
+                }
+            });
+            SortedList<Promocion> sortedListaPromocion = new SortedList<>(filtradorPromociones);
+            sortedListaPromocion.comparatorProperty().bind(tvPromociones.comparatorProperty());
+            tvPromociones.setItems(sortedListaPromocion);
         }
     }
     
