@@ -198,13 +198,13 @@ public class FXMLPromocionFormularioController implements Initializable {
             fechaValida = false;
         }
         
-        if(fechaFin == null){
-            dpFechaFin.setStyle(estiloError);
+        if(!Utilidades.descuentoValido(descuento)){
+            tfDescuento.setStyle(estiloError);
             fechaValida = false;
         }
         
-        if(!Utilidades.descuentoValido(descuento)){
-            tfDescuento.setStyle(estiloError);
+        if(fechaFin == null){
+            dpFechaFin.setStyle(estiloError);
             fechaValida = false;
         }
         

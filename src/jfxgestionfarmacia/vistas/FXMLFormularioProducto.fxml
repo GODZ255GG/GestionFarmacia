@@ -13,7 +13,7 @@
    <children>
       <Pane prefHeight="86.0" prefWidth="1071.0" style="-fx-background-color: white;">
          <children>
-            <Label fx:id="lbTitulo" layoutX="385.0" layoutY="18.0" text="Nuevo Producto" textFill="#006666">
+            <Label fx:id="lbTitulo" layoutX="14.0" layoutY="18.0" text="Nuevo Producto" textFill="#006666">
                <font>
                   <Font name="Footlight MT Light" size="46.0" />
                </font>
