@@ -84,7 +84,7 @@ public class FXMLFormularioEmpleadoController implements Initializable {
         this.esEdicion = esEdicion;
         this.empleadoEdicion = empleadoEdicion;
         this.interfazNotificacion = interfazNotificacion;
-        //TODO
+        
         if(esEdicion){
             lbTitulo.setText("Editar información del empleado(a) "+empleadoEdicion.getNombre());
             cargarInformacionEdicion();
@@ -142,7 +142,7 @@ public class FXMLFormularioEmpleadoController implements Initializable {
         int posicionSede = cbSede.getSelectionModel().getSelectedIndex();
         int posicionTurno = cbTurno.getSelectionModel().getSelectedIndex();
         String horario = tfHorario.getText();
-        //TODO
+        
         if(nombre.isEmpty()){
             tfNombre.setStyle(estiloError);
             datosValidados = false;
@@ -167,7 +167,7 @@ public class FXMLFormularioEmpleadoController implements Initializable {
             tfPassword.setStyle(estiloError);
             datosValidados = false;
         }
-        if(tipoEmpleado.isEmpty()){
+        if(tipoEmpleado == null){
             cbTipoEmpleado.setStyle(estiloError);
             datosValidados = false;
         }
@@ -184,47 +184,50 @@ public class FXMLFormularioEmpleadoController implements Initializable {
             datosValidados = false;
         }
         
-        Empleado empleadoValidado = new Empleado();
-        empleadoValidado.setNombre(nombre);
-        empleadoValidado.setApellidoPaterno(apellidoPaterno);
-        empleadoValidado.setApellidoMaterno(apellidoMaterno);
-        empleadoValidado.setCorreoElectronico(correoElectronico);
-        empleadoValidado.setUsername(username);
-        empleadoValidado.setPassword(password);
-        empleadoValidado.setTipoEmpleado(tipoEmpleado);
-        empleadoValidado.setIdSede(sedes.get(posicionSede).getIdSede());
-        empleadoValidado.setIdHorario(horarios.get(posicionTurno).getIdHorario());
-        empleadoValidado.setHorario(horario);
-        
-        try{
-            if(esEdicion){
-                if(archivoFoto != null || empleadoEdicion.getFoto().length > 0){
-                    if(archivoFoto != null){
-                    empleadoValidado.setFoto(Files.readAllBytes(archivoFoto.toPath()));
-                }else{
-                    empleadoValidado.setFoto(empleadoEdicion.getFoto());
-                }
+        if(datosValidados){
+            Empleado empleadoValidado = new Empleado();
+            empleadoValidado.setNombre(nombre);
+            empleadoValidado.setApellidoPaterno(apellidoPaterno);
+            empleadoValidado.setApellidoMaterno(apellidoMaterno);
+            empleadoValidado.setCorreoElectronico(correoElectronico);
+            empleadoValidado.setUsername(username);
+            empleadoValidado.setPassword(password);
+            empleadoValidado.setTipoEmpleado(tipoEmpleado);
+            empleadoValidado.setIdSede(sedes.get(posicionSede).getIdSede());
+            empleadoValidado.setIdHorario(horarios.get(posicionTurno).getIdHorario());
+            empleadoValidado.setHorario(horario);
+
+            try{
+                if(esEdicion){
+                    if(archivoFoto != null || empleadoEdicion.getFoto().length > 0){
+                        if(archivoFoto != null){
+                        empleadoValidado.setFoto(Files.readAllBytes(archivoFoto.toPath()));
+                    }else{
+                        empleadoValidado.setFoto(empleadoEdicion.getFoto());
+                    }
                     empleadoValidado.setIdEmpleado((empleadoEdicion.getIdEmpleado()));
                     actualizarEmplado(empleadoValidado);
+                    }else{
+                        Utilidades.mostrarDialogoSimple("Selecciona una foto", 
+                                "Para editar el registro del Empleado debes seleccionar su foto desde el boton de Seleccionar Foto", 
+                                AlertType.WARNING);
+                    }   
                 }else{
-                    Utilidades.mostrarDialogoSimple("Selecciona una Foto para el empleado", 
-                            "Para editar el registro del Emleado debes seleccionar su foto desde el boton de Seleccionar Foto", 
-                            AlertType.WARNING);
-                }   
-            }
-                if(archivoFoto != null){
-                    empleadoValidado.setFoto(Files.readAllBytes(archivoFoto.toPath()));
-                    registrarEmpleado(empleadoValidado);
-                }else{
-                    Utilidades.mostrarDialogoSimple("Seleccionae una foto para el empleado", 
-                            "Para guardar el registro del Emleado debes seleccionar su foto desde el boton de Seleccionar Foto", 
-                            AlertType.WARNING);
+                    if(archivoFoto != null){
+                        empleadoValidado.setFoto(Files.readAllBytes(archivoFoto.toPath()));
+                        registrarEmpleado(empleadoValidado);
+                    }else{
+                        Utilidades.mostrarDialogoSimple("Selecciona una foto", 
+                                "Para guardar el registro del Empleado debes seleccionar su foto desde el boton de Seleccionar Foto", 
+                                AlertType.WARNING);
+                    }
                 }
-            
-        }catch(IOException e){
-            Utilidades.mostrarDialogoSimple("Error con el archivo", 
-                    "Hubo un error al intentar guardar la imagen, vuelva a seleccinar el archivo", AlertType.ERROR);
-        } 
+
+            }catch(IOException e){
+                Utilidades.mostrarDialogoSimple("Error con el archivo", 
+                        "Hubo un error al intentar guardar la imagen, vuelva a seleccinar el archivo", AlertType.ERROR);
+            }
+        }
     }
     
     private void registrarEmpleado(Empleado empleadoRegistro){
@@ -259,7 +262,7 @@ public class FXMLFormularioEmpleadoController implements Initializable {
                             "La información del empleado no puede ser modificar, por favor verifique su información", AlertType.WARNING);
                 break;
             case Constantes.OPERACION_EXITOSA:
-                    Utilidades.mostrarDialogoSimple("Empleado Registrado", 
+                    Utilidades.mostrarDialogoSimple("Empleado Modificado", 
                             "La información del empleado fue modificada correctamente", AlertType.INFORMATION);
                     cerrarVentana();
                     interfazNotificacion.notificarOperacionActualizarEmpleado(empleadoActualizar.getNombre());

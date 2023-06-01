@@ -48,7 +48,12 @@ public class FXMLMainController implements Initializable {
 
     @FXML
     private void clicPromociones(MouseEvent event) {
-        
+        Stage escenarioEmpleados = new Stage();
+        Scene esceneAdminEmpleados = Utilidades.inicializarEscena("vistas/FXMLPromociones.fxml");
+        escenarioEmpleados.setScene(esceneAdminEmpleados);
+        escenarioEmpleados.setTitle("Administración de Promociones");
+        escenarioEmpleados.initModality(Modality.APPLICATION_MODAL);
+        escenarioEmpleados.showAndWait();
     }
 
     @FXML

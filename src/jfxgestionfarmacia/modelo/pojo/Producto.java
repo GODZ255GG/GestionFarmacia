@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package jfxgestionfarmacia.modelo.pojo;
 
-/**
- *
- * @author migue
- */
 public class Producto {
         
     private int idProducto;
@@ -101,6 +93,4 @@ public class Producto {
      public String toString(){
         return nombre;
     }
-    
-    
 }

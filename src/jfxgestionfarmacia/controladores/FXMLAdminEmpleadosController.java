@@ -177,6 +177,8 @@ public class FXMLAdminEmpleadosController implements Initializable, INotificacio
                         String lowerNewValue = newValue.toLowerCase();
                         if(empleadoFiltro.getNombre().toLowerCase().contains(lowerNewValue)){
                             return true;
+                        }else if(empleadoFiltro.getTipoEmpleado().toLowerCase().contains(lowerNewValue)){
+                            return true;
                         }
                         return false;
                     });

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package jfxgestionfarmacia.modelo.DAO;
 
 import java.lang.reflect.Array;
@@ -15,13 +12,10 @@ import jfxgestionfarmacia.modelo.pojo.Producto;
 import jfxgestionfarmacia.modelo.pojo.ProductoRespuesta;
 import jfxgestionfarmacia.utils.Constantes;
 
-/**
- *
- * @author migue
- */
+
 public class ProductoDAO {
-    
-     public static ProductoRespuesta obtenerInformacionProductos(){
+    public static ProductoRespuesta obtenerInformacionProductos(){
+
        ProductoRespuesta respuesta = new ProductoRespuesta();
        Connection conexionBD = ConexionBD.abrirConexionBD();
        respuesta.setCodigoRespuesta(Constantes.OPERACION_EXITOSA);
@@ -57,8 +51,6 @@ public class ProductoDAO {
        }
         return respuesta;    
     }
-     
-     
      public static int guardarProducto(Producto productoNuevo){
          int respuesta;
          Connection conexionBD = ConexionBD.abrirConexionBD();
@@ -149,6 +141,4 @@ public class ProductoDAO {
          }
          return respuesta;
      }
-    
-    
 }

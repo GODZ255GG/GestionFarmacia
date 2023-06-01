@@ -45,9 +45,7 @@ public class FXMLConsultarEmpleadoController implements Initializable {
     private TextField tfNombre;
     @FXML
     private ComboBox<Sede> cbSede;
-    
     private Empleado empleadoConsulta;
-    
     private ObservableList<Sede> sedes;
     @FXML
     private TextField tfHorario;
@@ -87,13 +85,16 @@ public class FXMLConsultarEmpleadoController implements Initializable {
         tfPassword.setEditable(false);
         String tipoEmpleado = empleadoConsulta.getTipoEmpleado();
         cbTipoEmpleado.getSelectionModel().select(tipoEmpleado);
-        cbTipoEmpleado.setEditable(false);
+        cbTipoEmpleado.setDisable(true);
+        cbTipoEmpleado.setStyle("-fx-opacity: 1; -fx-background-color: #ffffff;");
         int posicionSede = obtenerPosicionComboSede(empleadoConsulta.getIdSede());
         cbSede.getSelectionModel().select(posicionSede);
-        cbSede.setEditable(false);
+        cbSede.setDisable(true);
+        cbSede.setStyle("-fx-opacity: 1; -fx-background-color: #ffffff;");
         int posicionTurno = obtenerPosicionComboTurno(empleadoConsulta.getIdHorario());
         cbTurno.getSelectionModel().select(posicionTurno);
-        cbTurno.setEditable(false);
+        cbTurno.setDisable(true);
+        cbTurno.setStyle("-fx-opacity: 1; -fx-background-color: #ffffff;");
         tfHorario.setText(empleadoConsulta.getHorario());
         tfHorario.setEditable(false);
         try{

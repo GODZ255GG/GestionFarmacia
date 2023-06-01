@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package jfxgestionfarmacia.modelo.pojo;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author migue
- */
 public class ProductoRespuesta {
     private int codigoRespuesta;
     private ArrayList<Producto>productos;
