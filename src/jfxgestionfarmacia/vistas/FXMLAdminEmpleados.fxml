@@ -47,7 +47,7 @@
             <TableColumn fx:id="tcHorario" prefWidth="120.0" text="Horario" />
         </columns>
       </TableView>
-      <TextField fx:id="tfBuscar" layoutX="42.0" layoutY="125.0" prefHeight="35.0" prefWidth="525.0" promptText="Buscar Empleados por Nombre" />
+      <TextField fx:id="tfBuscar" layoutX="42.0" layoutY="125.0" prefHeight="35.0" prefWidth="525.0" promptText="Buscar Empleados por Nombre o Tipo de Empleado" />
       <Button layoutX="694.0" layoutY="125.0" mnemonicParsing="false" onAction="#clicBtnRegistrar" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Registrar" textFill="#006666">
          <font>
             <Font name="Tahoma Bold" size="18.0" />

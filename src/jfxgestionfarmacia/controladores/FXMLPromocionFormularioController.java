@@ -224,28 +224,28 @@ public class FXMLPromocionFormularioController implements Initializable {
             }
         }
         if(fechaValida){
-        Promocion promocionValidada = new Promocion();
-        promocionValidada.setNombre(nombre);
-        promocionValidada.setIdProducto(productos.get(idProducto).getIdProducto());
-        promocionValidada.setFechaInicio(fechaInicio.toString());
-        promocionValidada.setFechaFin(fechaFin.toString());
-        promocionValidada.setDescuento(Float.parseFloat(descuento));
-        promocionValidada.setDescripcion(descripcion);
-        try{
-            if(esEdicion){
-                if(archivoSeleccionado != null || promocionEdicion.getFotoPromocion().length > 0){
-                    if(archivoSeleccionado != null){
-                        promocionValidada.setFotoPromocion(Files.readAllBytes(archivoSeleccionado.toPath()));
-                    }else{
-                        promocionValidada.setFotoPromocion(promocionEdicion.getFotoPromocion());
-                    }
-                        promocionValidada.setIdPromociones(promocionEdicion.getIdPromociones());
-                        actualizarPromocion(promocionValidada);
-                    }else{
-                        Utilidades.mostrarDialogoSimple("Selecciona una imagen", 
-                                "Para guardar el registro de la promocion debes seleccionar una foto", 
-                                Alert.AlertType.WARNING);
-                    }
+            Promocion promocionValidada = new Promocion();
+            promocionValidada.setNombre(nombre);
+            promocionValidada.setIdProducto(productos.get(idProducto).getIdProducto());
+            promocionValidada.setFechaInicio(fechaInicio.toString());
+            promocionValidada.setFechaFin(fechaFin.toString());
+            promocionValidada.setDescuento(Float.parseFloat(descuento));
+            promocionValidada.setDescripcion(descripcion);
+            try{
+                if(esEdicion){
+                    if(archivoSeleccionado != null || promocionEdicion.getFotoPromocion().length > 0){
+                        if(archivoSeleccionado != null){
+                            promocionValidada.setFotoPromocion(Files.readAllBytes(archivoSeleccionado.toPath()));
+                        }else{
+                            promocionValidada.setFotoPromocion(promocionEdicion.getFotoPromocion());
+                        }
+                            promocionValidada.setIdPromociones(promocionEdicion.getIdPromociones());
+                            actualizarPromocion(promocionValidada);
+                        }else{
+                            Utilidades.mostrarDialogoSimple("Selecciona una imagen", 
+                                    "Para guardar el registro de la promocion debes seleccionar una foto", 
+                                    Alert.AlertType.WARNING);
+                        }
                 }else{
                     if(archivoSeleccionado != null){
                     promocionValidada.setFotoPromocion(Files.readAllBytes(archivoSeleccionado.toPath()));
