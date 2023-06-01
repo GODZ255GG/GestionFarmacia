@@ -82,7 +82,7 @@
             <Image url="@../recursos/droga.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="57.0" fitWidth="83.0" layoutX="397.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="57.0" fitWidth="83.0" layoutX="397.0" layoutY="14.0" onMouseClicked="#clickInventario" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/tienda-online.png" />
          </image>

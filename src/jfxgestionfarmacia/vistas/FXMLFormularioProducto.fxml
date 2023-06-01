@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="632.0" prefWidth="1071.0" style="-fx-background-color: #006666;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfxgestionfarmacia.controladores.FXMLFormularioProductoController">
+   <children>
+      <Pane prefHeight="86.0" prefWidth="1071.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="lbTitulo" layoutX="385.0" layoutY="18.0" text="Nuevo Producto" textFill="#006666">
+               <font>
+                  <Font name="Footlight MT Light" size="46.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="39.0" layoutY="554.0" mnemonicParsing="false" onAction="#clicBtnCancelarNuevoProducto" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Cancelar" textFill="#006666">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="892.0" layoutY="554.0" mnemonicParsing="false" onAction="#clicBtnRegistrarProducto" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Registrar" textFill="#006666">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Button>
+      <Pane layoutY="604.0" prefHeight="28.0" prefWidth="1071.0" style="-fx-background-color: white;" />
+      <Label fx:id="lbImagen" layoutX="460.0" layoutY="112.0" textFill="RED">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfNombreProducto" layoutX="26.0" layoutY="178.0" prefHeight="35.0" prefWidth="241.0" promptText="Ej. Clorfenamina" />
+      <TextField fx:id="tfPrecio" layoutX="26.0" layoutY="317.0" prefHeight="35.0" prefWidth="241.0" promptText="Ej. 35.00" />
+      <Label layoutX="26.0" layoutY="147.0" text="Nombre del producto" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="327.0" layoutY="140.0" text="Tipo de producto" textFill="#fcfcfc">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="282.0" text="Precio" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="327.0" layoutY="277.0" text="Fecha de caducidad" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="434.0" text="¿Es un producto controlado?" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="327.0" layoutY="434.0" text="¿Cuantos agregaras?" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfCuantosAgregar" layoutX="327.0" layoutY="473.0" prefHeight="35.0" prefWidth="241.0" promptText="Ej. 8" />
+      <ComboBox fx:id="cbTipoProducto" layoutX="327.0" layoutY="178.0" prefHeight="35.0" prefWidth="241.0" />
+      <ComboBox fx:id="cbProductoControlado" layoutX="26.0" layoutY="473.0" prefHeight="35.0" prefWidth="241.0" />
+      <DatePicker fx:id="DpFechaCaducidad" layoutX="327.0" layoutY="317.0" prefHeight="35.0" prefWidth="241.0" />
+      <ImageView fx:id="IVFotoProducto" fitHeight="291.0" fitWidth="387.0" layoutX="633.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/banded-adhesive-plaster-2.png" />
+         </image></ImageView>
+      <Button layoutX="729.0" layoutY="473.0" mnemonicParsing="false" onAction="#clickBtnFotoProducto" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Seleccionar foto" textFill="#006666">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
