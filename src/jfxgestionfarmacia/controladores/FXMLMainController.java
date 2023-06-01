@@ -62,4 +62,14 @@ public class FXMLMainController implements Initializable {
                 escenarioBase.show();
         }
     }
+
+    @FXML
+    private void clickInventario(MouseEvent event) {
+        Stage escenarioInventario = new Stage();
+        Scene esceneAdminEmpleados = Utilidades.inicializarEscena("vistas/FXMLAdminInventario.fxml");
+        escenarioInventario.setScene(esceneAdminEmpleados);
+        escenarioInventario.setTitle("Administración del Inventario");
+        escenarioInventario.initModality(Modality.APPLICATION_MODAL);
+        escenarioInventario.showAndWait();
+    }
 }

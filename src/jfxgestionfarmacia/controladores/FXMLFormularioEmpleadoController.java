@@ -204,14 +204,14 @@ public class FXMLFormularioEmpleadoController implements Initializable {
                 }else{
                     empleadoValidado.setFoto(empleadoEdicion.getFoto());
                 }
-                empleadoValidado.setIdEmpleado((empleadoEdicion.getIdEmpleado()));
-                actualizarEmplado(empleadoValidado);
+                    empleadoValidado.setIdEmpleado((empleadoEdicion.getIdEmpleado()));
+                    actualizarEmplado(empleadoValidado);
                 }else{
                     Utilidades.mostrarDialogoSimple("Selecciona una Foto para el empleado", 
                             "Para editar el registro del Emleado debes seleccionar su foto desde el boton de Seleccionar Foto", 
                             AlertType.WARNING);
                 }   
-            }else{
+            }
                 if(archivoFoto != null){
                     empleadoValidado.setFoto(Files.readAllBytes(archivoFoto.toPath()));
                     registrarEmpleado(empleadoValidado);
@@ -220,7 +220,7 @@ public class FXMLFormularioEmpleadoController implements Initializable {
                             "Para guardar el registro del Emleado debes seleccionar su foto desde el boton de Seleccionar Foto", 
                             AlertType.WARNING);
                 }
-            }
+            
         }catch(IOException e){
             Utilidades.mostrarDialogoSimple("Error con el archivo", 
                     "Hubo un error al intentar guardar la imagen, vuelva a seleccinar el archivo", AlertType.ERROR);
