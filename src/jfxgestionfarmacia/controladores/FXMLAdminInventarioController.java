@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package jfxgestionfarmacia.controladores;
 
 import java.io.IOException;
@@ -56,18 +52,15 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
     private TableColumn colStock;
     @FXML
     private TextField tfBusqueda;
-
     private ObservableList<Producto> productos;
     private INotificacionOperacionProducto interfazNotificacionProducto;
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         configurarTabla();
         cargarInformacionTabla();
     }    
-    
-    //
+
     private void configurarTabla(){
         colnombreProducto.setCellValueFactory(new PropertyValueFactory("nombre"));
         colTipoProducto.setCellValueFactory(new PropertyValueFactory("tipoProducto"));
@@ -75,10 +68,8 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
         colFechaCaducidad.setCellValueFactory(new PropertyValueFactory("fechaCaducidad"));
         colControlado.setCellValueFactory(new PropertyValueFactory("esControlado"));
         colStock.setCellValueFactory(new PropertyValueFactory("stock"));
-        
     }
     
-    //
     private void cargarInformacionTabla(){
         productos = FXCollections.observableArrayList();
         
@@ -118,7 +109,6 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
 
     @FXML
     private void clickBtnEditar(ActionEvent event) {
-        //int posicion = tvProductos.getSelectionModel().getSelectedIndex();
         Producto productoSeleccionado = tvProductos.getSelectionModel().getSelectedItem();
         if(productoSeleccionado != null){
             irFormulario(true, productoSeleccionado);
@@ -128,8 +118,9 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
                     Alert.AlertType.WARNING);
         }
     }
-    
-     private void irFormulario(boolean esEdicion, Producto productoEdicion){        
+
+    private void irFormulario(boolean esEdicion, Producto productoEdicion){        
+
         try{
             FXMLLoader accesoControlador = new FXMLLoader(JFXGestionFarmacia.class.getResource("vistas/FXMLFormularioProducto.fxml"));
             Parent vista = accesoControlador.load();
@@ -140,15 +131,13 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
             escenarioFormulario.setScene(new Scene(vista));
             escenarioFormulario.setTitle("Formulario");
             escenarioFormulario.initModality(Modality.APPLICATION_MODAL);
-            escenarioFormulario.showAndWait();
-            
+            escenarioFormulario.showAndWait();  
         }catch(IOException ex){
              Logger.getLogger(FXMLAdminInventarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     
-        
-     private void configurarBusquedaTabla(){
+
+    private void configurarBusquedaTabla(){
         if(productos.size() > 0){
             FilteredList<Producto> filtradoProducto = new FilteredList<>(productos, p -> true);
             tfBusqueda.textProperty().addListener(new ChangeListener<String>() {
@@ -177,13 +166,12 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
         }
     }
     
-
     @FXML
     private void clickBtnEliminar(ActionEvent event) {
         Producto productoSeleccionado = tvProductos.getSelectionModel().getSelectedItem();
         if(productoSeleccionado != null){
             boolean borrarRegistro = Utilidades.mostrarDialogoConfirmacion("Eliminar registro del producto",
-                    "¿Estas seguro que deseas eliminar el registro del producto?"
+                    "¿Estas seguro que deseas eliminar el registro del producto: "
                                 +productoSeleccionado.getNombre()+ "?");
             
             if(borrarRegistro){
@@ -214,9 +202,8 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
                     Alert.AlertType.WARNING);
         }
     }
-    
-    
-     @Override
+  
+    @Override
     public void notificarOperacionGuardarProducto(String nombreProducto) {
         cargarInformacionTabla();
   
@@ -226,7 +213,4 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
     public void notificarOperacionActualizarProducto(String nombreProducto) {
         cargarInformacionTabla();    
     }
-
-
-    
 }

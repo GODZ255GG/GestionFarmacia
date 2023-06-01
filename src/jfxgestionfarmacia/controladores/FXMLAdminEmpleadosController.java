@@ -52,7 +52,6 @@ public class FXMLAdminEmpleadosController implements Initializable, INotificacio
     private TableColumn tcTipoEmpleado;
     @FXML
     private TableColumn tcSede;
-    
     private ObservableList<Empleado> empleados;
     @FXML
     private TableView<Empleado> tvEmpleados;

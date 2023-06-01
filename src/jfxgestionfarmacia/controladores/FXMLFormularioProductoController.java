@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package jfxgestionfarmacia.controladores;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.nio.file.Files;
 import java.time.LocalDate;
@@ -22,14 +17,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
@@ -38,13 +31,6 @@ import jfxgestionfarmacia.modelo.DAO.ProductoDAO;
 import jfxgestionfarmacia.modelo.pojo.Producto;
 import jfxgestionfarmacia.utils.Constantes;
 import jfxgestionfarmacia.utils.Utilidades;
-import static sun.security.krb5.Confounder.bytes;
-
-/**
- * FXML Controller class
- *
- * @author migue
- */
 public class FXMLFormularioProductoController implements Initializable {
 
     @FXML
@@ -96,11 +82,11 @@ public class FXMLFormularioProductoController implements Initializable {
            cargarInformacionEdicion();
         }else{
             lbTitulo.setText("Registrar nuevo producto");
-        }      
-        
+        }       
     }
 
-     private void cargarInformacionEdicion(){
+    private void cargarInformacionEdicion(){
+      
         tfNombreProducto.setText(productoEdicion.getNombre());
         
         float precio = productoEdicion.getPrecio();
@@ -122,23 +108,20 @@ public class FXMLFormularioProductoController implements Initializable {
         if (esControlado != null && !esControlado.isEmpty()) {
         cbProductoControlado.setValue(esControlado);
         } 
-        
-         try{          
+
+        try{
             byte[] fotoProducto = productoEdicion.getFotoProducto();
             if (fotoProducto != null && fotoProducto.length > 0) {
             ByteArrayInputStream inputFoto = new ByteArrayInputStream(productoEdicion.getFotoProducto());
             Image imgFotoProducto = new Image(inputFoto);
             IVFotoProducto.setImage(imgFotoProducto);
-            
             }else {
-            // Si no hay foto, puedes establecer una imagen predeterminada o dejarla en blanco
             IVFotoProducto.setImage(null);
         }
             
         }catch(Exception e){
             e.printStackTrace();
-        }
-        
+        } 
     }
      
     @FXML
@@ -215,7 +198,6 @@ public class FXMLFormularioProductoController implements Initializable {
 
                     actualizarProducto(productoValidado);
                 } else {
-                // Si no estás editando, entonces estás registrando un nuevo producto
                     registrarProducto(productoValidado);
                 }
                 
@@ -225,10 +207,7 @@ public class FXMLFormularioProductoController implements Initializable {
                 Utilidades.mostrarDialogoSimple("Error con el archivo",
                     "Hubo un error al intentar gurdar la imagen en validarCamposRegistro, vuelva a seleccionar el archivo",
                     Alert.AlertType.ERROR);
-            
-        }
-           
-     
+            }
         }
     }
     
@@ -239,7 +218,6 @@ public class FXMLFormularioProductoController implements Initializable {
      
     private void registrarProducto(Producto productoRegistro){
         int codigoRespuesta = ProductoDAO.guardarProducto(productoRegistro);
-        // System.out.println(codigoRespuesta);
         switch(codigoRespuesta){
             case Constantes.ERROR_CONEXION:
                 Utilidades.mostrarDialogoSimple("Error de conexion en registrarProducto",
@@ -328,17 +306,15 @@ public class FXMLFormularioProductoController implements Initializable {
         archivoFoto = dialogoImagen.showOpenDialog(escenarioActual);
         
         if(archivoFoto != null){
-             try{
-             BufferedImage bufferImg = ImageIO.read(archivoFoto);
-             Image imagenFoto = SwingFXUtils.toFXImage(bufferImg, null);
-             IVFotoProducto.setImage(imagenFoto);
-             }catch(Exception e){
-                 e.printStackTrace();
+            try{
+                BufferedImage bufferImg = ImageIO.read(archivoFoto);
+                Image imagenFoto = SwingFXUtils.toFXImage(bufferImg, null);
+                IVFotoProducto.setImage(imagenFoto);
+            }catch(Exception e){
+                e.printStackTrace();
                  
              }
-        }
-        
-        
+        }   
     }
 
     
