@@ -1,6 +1,7 @@
 package jfxgestionfarmacia.modelo.pojo;
 
 public class Producto {
+        
     private int idProducto;
     private String nombre;
     private String tipoProducto;

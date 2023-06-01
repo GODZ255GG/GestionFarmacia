@@ -54,13 +54,13 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
     private TextField tfBusqueda;
     private ObservableList<Producto> productos;
     private INotificacionOperacionProducto interfazNotificacionProducto;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         configurarTabla();
         cargarInformacionTabla();
     }    
-    
+
     private void configurarTabla(){
         colnombreProducto.setCellValueFactory(new PropertyValueFactory("nombre"));
         colTipoProducto.setCellValueFactory(new PropertyValueFactory("tipoProducto"));
@@ -118,8 +118,9 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
                     Alert.AlertType.WARNING);
         }
     }
-    
+
     private void irFormulario(boolean esEdicion, Producto productoEdicion){        
+
         try{
             FXMLLoader accesoControlador = new FXMLLoader(JFXGestionFarmacia.class.getResource("vistas/FXMLFormularioProducto.fxml"));
             Parent vista = accesoControlador.load();
@@ -135,7 +136,7 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
              Logger.getLogger(FXMLAdminInventarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void configurarBusquedaTabla(){
         if(productos.size() > 0){
             FilteredList<Producto> filtradoProducto = new FilteredList<>(productos, p -> true);
@@ -201,7 +202,7 @@ public class FXMLAdminInventarioController implements Initializable, INotificaci
                     Alert.AlertType.WARNING);
         }
     }
-    
+  
     @Override
     public void notificarOperacionGuardarProducto(String nombreProducto) {
         cargarInformacionTabla();

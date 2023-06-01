@@ -13,7 +13,7 @@ public class ConexionBD {
     
     private static String usuario = "Administrador";
     private static String password = "Swordart10";
-    
+  
     private static String urlConexion = "jdbc:mysql://"+hostname+":"+puerto+"/"+
             nombreBase+"?allowPublicKeyRetrieval=true&useSSL=false";
     

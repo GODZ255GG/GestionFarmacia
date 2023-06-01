@@ -1,3 +1,4 @@
+
 package jfxgestionfarmacia.interfazempleado;
 
 public interface INotificacionOperacionProducto {

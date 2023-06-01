@@ -31,7 +31,6 @@ import jfxgestionfarmacia.modelo.DAO.ProductoDAO;
 import jfxgestionfarmacia.modelo.pojo.Producto;
 import jfxgestionfarmacia.utils.Constantes;
 import jfxgestionfarmacia.utils.Utilidades;
-
 public class FXMLFormularioProductoController implements Initializable {
 
     @FXML
@@ -87,6 +86,7 @@ public class FXMLFormularioProductoController implements Initializable {
     }
 
     private void cargarInformacionEdicion(){
+      
         tfNombreProducto.setText(productoEdicion.getNombre());
         
         float precio = productoEdicion.getPrecio();
@@ -108,8 +108,8 @@ public class FXMLFormularioProductoController implements Initializable {
         if (esControlado != null && !esControlado.isEmpty()) {
         cbProductoControlado.setValue(esControlado);
         } 
-        
-        try{          
+
+        try{
             byte[] fotoProducto = productoEdicion.getFotoProducto();
             if (fotoProducto != null && fotoProducto.length > 0) {
             ByteArrayInputStream inputFoto = new ByteArrayInputStream(productoEdicion.getFotoProducto());
@@ -316,5 +316,6 @@ public class FXMLFormularioProductoController implements Initializable {
              }
         }   
     }
+
     
 }
