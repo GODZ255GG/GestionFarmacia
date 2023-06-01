@@ -222,6 +222,7 @@ public class FXMLFormularioEmpleadoController implements Initializable {
                                 AlertType.WARNING);
                     }
                 }
+
             }catch(IOException e){
                 Utilidades.mostrarDialogoSimple("Error con el archivo", 
                         "Hubo un error al intentar guardar la imagen, vuelva a seleccinar el archivo", AlertType.ERROR);

@@ -13,13 +13,14 @@
       <Pane prefHeight="64.0" prefWidth="1081.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="51.0" fitWidth="87.0" layoutX="14.0" layoutY="7.0" onMouseClicked="#clickCerrarVentana" pickOnBounds="true" preserveRatio="true">
-               <image>
+              <image>
                   <Image url="@../recursos/flecha-correcta.png" />
                </image>
             </ImageView>
             <Label layoutX="265.0" layoutY="7.0" text="Administración de inventario" textFill="#006666">
                <font>
                   <Font name="Footlight MT Light" size="46.0" />
+
                </font>
             </Label>
          </children>

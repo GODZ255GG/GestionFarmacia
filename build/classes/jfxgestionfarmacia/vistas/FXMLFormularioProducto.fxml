@@ -8,29 +8,28 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="632.0" prefWidth="1071.0" style="-fx-background-color: #006666;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfxgestionfarmacia.controladores.FXMLFormularioProductoController">
+<AnchorPane id="AnchorPane" prefHeight="674.0" prefWidth="815.0" style="-fx-background-color: #006666;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfxgestionfarmacia.controladores.FXMLFormularioProductoController">
    <children>
-      <Pane prefHeight="86.0" prefWidth="1071.0" style="-fx-background-color: white;">
+      <Pane prefHeight="86.0" prefWidth="815.0" style="-fx-background-color: white;">
          <children>
-            <Label fx:id="lbTitulo" layoutX="14.0" layoutY="18.0" text="Nuevo Producto" textFill="#006666">
+            <Label fx:id="lbTitulo" layoutX="137.0" layoutY="18.0" text="Nuevo Producto" textFill="#006666">
                <font>
                   <Font name="Footlight MT Light" size="46.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Button layoutX="39.0" layoutY="554.0" mnemonicParsing="false" onAction="#clicBtnCancelarNuevoProducto" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Cancelar" textFill="#006666">
+      <Button layoutX="48.0" layoutY="590.0" mnemonicParsing="false" onAction="#clicBtnCancelarNuevoProducto" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Cancelar" textFill="#006666">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="892.0" layoutY="554.0" mnemonicParsing="false" onAction="#clicBtnRegistrarProducto" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Registrar" textFill="#006666">
+      <Button layoutX="394.0" layoutY="590.0" mnemonicParsing="false" onAction="#clicBtnRegistrarProducto" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Registrar" textFill="#006666">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
-      <Pane layoutY="604.0" prefHeight="28.0" prefWidth="1071.0" style="-fx-background-color: white;" />
+      <Pane layoutY="646.0" prefHeight="28.0" prefWidth="815.0" style="-fx-background-color: white;" />
       <Label fx:id="lbImagen" layoutX="460.0" layoutY="112.0" textFill="RED">
          <font>
             <Font size="19.0" />
@@ -68,15 +67,15 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tfCuantosAgregar" layoutX="327.0" layoutY="473.0" prefHeight="35.0" prefWidth="241.0" promptText="Ej. 8" />
-      <ComboBox fx:id="cbTipoProducto" layoutX="327.0" layoutY="178.0" prefHeight="35.0" prefWidth="241.0" />
-      <ComboBox fx:id="cbProductoControlado" layoutX="26.0" layoutY="473.0" prefHeight="35.0" prefWidth="241.0" />
-      <DatePicker fx:id="DpFechaCaducidad" layoutX="327.0" layoutY="317.0" prefHeight="35.0" prefWidth="241.0" />
-      <ImageView fx:id="IVFotoProducto" fitHeight="291.0" fitWidth="387.0" layoutX="633.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="tfCuantosAgregar" layoutX="327.0" layoutY="473.0" prefHeight="35.0" prefWidth="165.0" promptText="Ej. 8" />
+      <ComboBox fx:id="cbTipoProducto" layoutX="331.0" layoutY="180.0" prefWidth="150.0" />
+      <ComboBox fx:id="cbProductoControlado" layoutX="38.0" layoutY="477.0" prefWidth="150.0" />
+      <DatePicker fx:id="DpFechaCaducidad" layoutX="327.0" layoutY="322.0" prefHeight="31.0" prefWidth="158.0" />
+      <ImageView fx:id="IVFotoProducto" fitHeight="266.0" fitWidth="265.0" layoutX="528.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../recursos/banded-adhesive-plaster-2.png" />
+            <Image url="@../recursos/diseño-geometrico-2.png" />
          </image></ImageView>
-      <Button layoutX="729.0" layoutY="473.0" mnemonicParsing="false" onAction="#clickBtnFotoProducto" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Seleccionar foto" textFill="#006666">
+      <Button layoutX="587.0" layoutY="473.0" mnemonicParsing="false" onAction="#clickBtnFotoProducto" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Seleccionar foto" textFill="#006666">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
