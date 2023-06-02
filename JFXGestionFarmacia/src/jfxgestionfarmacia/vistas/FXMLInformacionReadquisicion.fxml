@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #006666;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfxgestionfarmacia.controladores.FXMLInformacionReadquisicionController">
+   <children>
+      <Label layoutX="25.0" layoutY="84.0" text="Fecha del pedido:" textFill="WHITE">
+         <font>
+            <Font name="Tahoma" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="111.0" text="Fecha de llegada del producto:" textFill="WHITE" />
+      <Label layoutX="25.0" layoutY="138.0" text="Direccion:" textFill="WHITE" />
+      <Label fx:id="lbRastreo" layoutX="380.0" layoutY="305.0" prefHeight="27.0" prefWidth="137.0" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tvProductos" layoutX="25.0" layoutY="197.0" prefHeight="179.0" prefWidth="271.0">
+        <columns>
+          <TableColumn fx:id="tcProducto" prefWidth="83.0" text="Producto" />
+          <TableColumn fx:id="tcCantidad" prefWidth="103.08966827392578" text="Cantidad" />
+            <TableColumn fx:id="tcPrecio" prefWidth="83.91033935546875" text="Precio" />
+        </columns>
+      </TableView>
+      <Pane layoutY="-1.0" prefHeight="64.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="122.0" layoutY="7.0" text="Consulta de Pedido" textFill="#006666">
+               <font>
+                  <Font name="Footlight MT Light" size="46.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="25.0" layoutY="165.0" text="Total:" textFill="WHITE" />
+      <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="6.0" layoutY="6.0" onMouseClicked="#clickSalirConsulta" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../build/classes/jfxgestionfarmacia/recursos/flecha-correcta.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbFechaPedido" layoutX="126.0" layoutY="84.0" textFill="WHITE" />
+      <Label fx:id="lbFechaLlegada" layoutX="195.0" layoutY="111.0" textFill="WHITE" />
+      <Label fx:id="lbDireccion" layoutX="87.0" layoutY="138.0" textFill="WHITE">
+         <font>
+            <Font name="Tahoma" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbTotal" layoutX="64.0" layoutY="165.0" textFill="WHITE" />
+      <Pane layoutX="323.0" layoutY="92.0" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fx:id="ivImagenRastreo" fitHeight="168.0" fitWidth="217.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

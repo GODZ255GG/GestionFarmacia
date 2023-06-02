@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import jfxgestionfarmacia.modelo.ConexionBD;
 import jfxgestionfarmacia.modelo.pojo.Producto;
 import jfxgestionfarmacia.modelo.pojo.ProductoRespuesta;
@@ -141,4 +142,33 @@ public class ProductoDAO {
          }
          return respuesta;
      }
+     
+    public List<Producto> obtenerIdNombrePrecioProducto(){
+        List<Producto> productos = new ArrayList<>();
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        if(conexionBD != null) {
+            try {
+                String consulta = "SELECT idProducto, nombre, precio FROM Producto";
+                PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
+                ResultSet resultado = prepararSentencia.executeQuery();
+                while (resultado.next()) {
+                    int idProducto = resultado.getInt("idProducto");
+                    String nombre = resultado.getString("nombre");
+                    float precio = resultado.getFloat("precio");
+                    Producto producto = new Producto();
+                    producto.setIdProducto(idProducto);
+                    producto.setNombre(nombre);
+                    producto.setPrecio(precio);
+                    
+                    productos.add(producto);
+                }
+                conexionBD.close();
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return productos;
+    }
+
+
 }

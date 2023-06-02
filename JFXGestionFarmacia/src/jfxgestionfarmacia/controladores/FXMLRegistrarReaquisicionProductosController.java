@@ -1,4 +1,4 @@
-package jfxgestionfarmacia.controladores;
+    package jfxgestionfarmacia.controladores;
 
 import java.io.ByteArrayInputStream;
 import jfxgestionfarmacia.modelo.DAO.ProductoDAO;
@@ -27,7 +27,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import jfxgestionfarmacia.interfaz.INotificacionOperacionPedido;
+import jfxgestionfarmacia.interfazempleado.INotificacionOperacionPedido;
 import jfxgestionfarmacia.modelo.DAO.PedidoDAO;
 import jfxgestionfarmacia.modelo.DAO.ProveedorDAO;
 import jfxgestionfarmacia.modelo.DAO.SedeDAO;
@@ -40,7 +40,7 @@ import jfxgestionfarmacia.utils.Constantes;
 import jfxgestionfarmacia.utils.Utilidades;
 
 
-public class FXMLRegistrarReaquisicionProductosController implements Initializable {
+public class FXMLRegistrarReaquisicionProductosController implements Initializable, INotificacionOperacionPedido{
 
     @FXML
     private TableView<Producto> tvCompraProducto;
@@ -106,7 +106,7 @@ public class FXMLRegistrarReaquisicionProductosController implements Initializab
         ProductoDAO productoDAO = new ProductoDAO(); // Crear una instancia de ProductoDAO
 
         // Obtener la lista de productos con id, nombre y precio
-        List<Producto> productos = productoDAO.obtenerIdNombrePrecioProductos();
+        List<Producto> productos = productoDAO.obtenerIdNombrePrecioProducto();
 
         // Limpiar el ComboBox
         //cbProducto.getItems().clear();
@@ -392,5 +392,15 @@ public class FXMLRegistrarReaquisicionProductosController implements Initializab
     private void cerrarVentana(){
         Stage escenarioBase = (Stage) lbTitulo.getScene().getWindow();
         escenarioBase.close();
+    }
+
+    @Override
+    public void notificarOperacionGuardar(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void notificarOperacionActualizar(String nombrePediProducto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
