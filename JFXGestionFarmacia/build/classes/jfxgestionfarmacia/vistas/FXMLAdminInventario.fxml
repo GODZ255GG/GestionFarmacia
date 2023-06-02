@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="662.0" prefWidth="1081.0" style="-fx-background-color: #006666;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfxgestionfarmacia.controladores.FXMLAdminInventarioController">
+   <children>
+      <Pane prefHeight="64.0" prefWidth="1081.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="51.0" fitWidth="87.0" layoutX="14.0" layoutY="7.0" onMouseClicked="#clickCerrarVentana" pickOnBounds="true" preserveRatio="true">
+              <image>
+                  <Image url="@../recursos/flecha-correcta.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="265.0" layoutY="7.0" text="Administración de inventario" textFill="#006666">
+               <font>
+                  <Font name="Footlight MT Light" size="46.0" />
+
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="tvProductos" layoutX="40.0" layoutY="144.0" prefHeight="463.0" prefWidth="1002.0">
+         <columns>
+            <TableColumn fx:id="colnombreProducto" prefWidth="248.0" resizable="false" text="Nombre de Producto" />
+            <TableColumn fx:id="colTipoProducto" prefWidth="177.0" resizable="false" text="Tipo de producto" />
+            <TableColumn fx:id="colPrecio" prefWidth="140.0" resizable="false" text="Precio" />
+            <TableColumn fx:id="colFechaCaducidad" prefWidth="202.0" resizable="false" text="Fecha de Caducidad" />
+            <TableColumn fx:id="colControlado" prefWidth="128.0" resizable="false" text="¿Es controlado?" />
+            <TableColumn fx:id="colStock" prefWidth="105.0" resizable="false" text="Stock" />
+         </columns>
+      </TableView>
+      <TextField fx:id="tfBusqueda" layoutX="40.0" layoutY="95.0" prefHeight="31.0" prefWidth="384.0" promptText="Buscar por Nombre o Tipo de producto" />
+      <Button layoutX="480.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickBtnRegistrar" prefHeight="35.0" prefWidth="122.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Registrar " textFill="#006666">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="700.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickBtnEditar" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Editar" textFill="#006666">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="898.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickBtnEliminar" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;" text="Dar Baja" textFill="#006666">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font></Button>
+      <Pane layoutY="632.0" prefHeight="31.0" prefWidth="1081.0" style="-fx-background-color: white;" />
+   </children>
+</AnchorPane>
