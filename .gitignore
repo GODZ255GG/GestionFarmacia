@@ -26,5 +26,5 @@ Thumbs.db
 /nbproject/build-impl.xml
 
 dist/
-/build/
-/JFXGestionFarmacia/nbproject/private/
+JFXGestionFarmacia/build/
+JFXGestionFarmacia/nbproject/private/
