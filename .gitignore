@@ -21,9 +21,11 @@ Thumbs.db
 .rar
 
 #Archivos especificos de NetBeans
-/nbproject/Makefile-.mk
-/nbproject/Package-*.bash
-/nbproject/build-impl.xml
+/JFXGestionFarmacia/nbproject/Makefile-.mk
+/JFXGestionFarmacia/nbproject/Package-*.bash
+/JFXGestionFarmacia/nbproject/build-impl.xml
+
+/JFXGestionFarmacia/nbproject/private
 
 dist/
 /build/

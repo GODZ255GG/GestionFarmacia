@@ -107,4 +107,64 @@ public class SedeDAO {
         }
         return respuesta;
     }
+    
+    public class SedeDAO {
+    public ArrayList<Sede> obtenerIdsYnombresSedes() {
+        ArrayList<Sede> sedes = null;
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        
+        if (conexionBD != null) {
+            try {
+                String consulta = "SELECT idSede, nombre FROM Sede";
+                PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
+                ResultSet resultado = prepararSentencia.executeQuery();
+                
+                sedes = new ArrayList();
+                
+                while (resultado.next()) {
+                    Sede sede = new Sede();
+                    sede.setIdSede(resultado.getInt("idSede"));
+                    sede.setNombre(resultado.getString("nombre"));                   
+                    sedes.add(sede);
+                }
+                
+                conexionBD.close();
+            } catch (SQLException e) {
+                // Manejo de excepciones
+            }
+        }
+        
+        return sedes;
+    }
+    
+    public static SedeRespuesta obtenerInformacionSedes(){
+        SedeRespuesta respuesta = new SedeRespuesta();
+        respuesta.setCodigoRespuesta(Constantes.OPERACION_EXITOSA);
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        if(conexionBD != null){
+            try{
+                String consulta = "SELECT * FROM Sede";
+                PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
+                ResultSet resultado = prepararSentencia.executeQuery();
+                ArrayList<Sede> sedeConsulta = new ArrayList();
+                while(resultado.next()){
+                    Sede sedes = new Sede();
+                    sedes.setIdSede(resultado.getInt("idSede"));
+                    sedes.setNombre(resultado.getString("nombre"));
+                    sedes.setDireccion(resultado.getString("direccion"));
+                    sedes.setCiudad(resultado.getString("ciudad"));
+                    sedeConsulta.add(sedes);
+                }
+                respuesta.setSede(sedeConsulta);
+                conexionBD.close();
+            }catch (SQLException e){
+                respuesta.setCodigoRespuesta(Constantes.ERROR_CONSULTA);
+            }
+        }else{
+            respuesta.setCodigoRespuesta(Constantes.ERROR_CONEXION);
+        }
+        return respuesta;
+    } 
+}
+
 }
