@@ -31,7 +31,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import jfxgestionfarmacia.JFXGestionFarmacia;
-import jfxgestionfarmacia.interfaz.INotificacionOperacionPedido;
+import jfxgestionfarmacia.interfazempleado.INotificacionOperacionPedido;
 import jfxgestionfarmacia.modelo.pojo.Producto;
 import jfxgestionfarmacia.utils.Constantes;
 import jfxgestionfarmacia.utils.Utilidades;
