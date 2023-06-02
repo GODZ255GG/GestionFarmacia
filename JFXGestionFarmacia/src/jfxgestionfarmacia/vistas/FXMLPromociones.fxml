@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="770.0" prefWidth="1201.0" style="-fx-background-color: #006666;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfxgestionfarmacia.controladores.FXMLPromocionesController">
+   <children>
+      <Pane prefHeight="86.0" prefWidth="1201.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="302.0" layoutY="18.0" text="Administración de Promociones" textFill="#006666">
+               <font>
+                  <Font name="Footlight MT Light" size="46.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="67.0" fitWidth="81.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#clicCerrarVentana" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/flecha-correcta.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TableView fx:id="tvPromociones" layoutX="35.0" layoutY="221.0" onMouseClicked="#clicBtnDobleClicConsulta" prefHeight="501.0" prefWidth="1157.0" style="-fx-background-color: #ddd6cc;">
+        <columns>
+          <TableColumn fx:id="colNombrePromo" prefWidth="177.0" text="Nombre de promoción" />
+            <TableColumn fx:id="colFechaIni" prefWidth="181.0" text="Fecha de inicio" />
+            <TableColumn fx:id="colFechaFin" prefWidth="190.0" text="Fecha de finalización" />
+            <TableColumn fx:id="colDescuento" prefWidth="108.0" text="Descuento" />
+            <TableColumn fx:id="colDescripcion" prefWidth="304.0" text="Descripción" />
+          <TableColumn fx:id="colNombreProdu" prefWidth="196.0" text="Nombre de producto" />
+        </columns>
+      </TableView>
+      <Button layoutX="440.0" layoutY="140.0" mnemonicParsing="false" onAction="#clicBtnRegistrar" prefHeight="35.0" prefWidth="116.0" style="-fx-background-radius: 18 18 18 18; -fx-background-color: white;" text="Registrar" textFill="#006666">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="601.0" layoutY="140.0" mnemonicParsing="false" onAction="#clicBtnModificar" prefHeight="35.0" prefWidth="116.0" style="-fx-background-radius: 18 18 18 18; -fx-background-color: white;" text="Modificar" textFill="#006666">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="752.0" layoutY="140.0" mnemonicParsing="false" onAction="#clicBtnBaja" prefHeight="35.0" prefWidth="129.0" style="-fx-background-radius: 18 18 18 18; -fx-background-color: white;" text="Dar de baja" textFill="#006666">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font></Button>
+      <ImageView fitHeight="98.0" fitWidth="279.0" layoutX="908.0" layoutY="107.0" pickOnBounds="true">
+         <image>
+            <Image url="@../recursos/oferta.jpg" />
+         </image></ImageView>
+      <Pane layoutY="742.0" prefHeight="28.0" prefWidth="1201.0" style="-fx-background-color: white;" />
+      <TextField fx:id="tfBusqueda" layoutX="35.0" layoutY="140.0" prefHeight="35.0" prefWidth="385.0" promptText="Buscar por Promocion o Producto" />
+   </children>
+</AnchorPane>
