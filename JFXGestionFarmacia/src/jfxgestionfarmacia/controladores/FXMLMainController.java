@@ -77,4 +77,14 @@ public class FXMLMainController implements Initializable {
         escenarioInventario.initModality(Modality.APPLICATION_MODAL);
         escenarioInventario.showAndWait();
     }
+
+    @FXML
+    private void clicReabastecer(MouseEvent event) {
+        Stage escenarioInventario = new Stage();
+        Scene esceneAdminEmpleados = Utilidades.inicializarEscena("vistas/FXMLAdministrarcionReadquisiciones.fxml");
+        escenarioInventario.setScene(esceneAdminEmpleados);
+        escenarioInventario.setTitle("Administración de Reaquisiciones");
+        escenarioInventario.initModality(Modality.APPLICATION_MODAL);
+        escenarioInventario.showAndWait();
+    }
 }

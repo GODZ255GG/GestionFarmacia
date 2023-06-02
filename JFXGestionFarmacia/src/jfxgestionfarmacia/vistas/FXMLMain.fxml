@@ -77,7 +77,7 @@
             <Image url="@../recursos/publicidad.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="57.0" fitWidth="57.0" layoutX="279.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="57.0" fitWidth="57.0" layoutX="279.0" layoutY="14.0" onMouseClicked="#clicReabastecer" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/droga.png" />
          </image>
